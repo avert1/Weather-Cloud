@@ -7,9 +7,13 @@ const App = express();
 
 App.get('/', function(req,res){
   //Check current weather data
-  weatherService.GetCurrentWeather();
-  res.send('hi');
+  weatherService.GetCurrentWeather(req,res);
+  //res.send('hi');
 
 });
+
+App.get('/loc/:state/:city', (req, res) =>{
+  weatherService.GetCurrentWeather(req,res);
+})
 
 module.exports = App;
