@@ -2,20 +2,21 @@
 var htmlWebpackPlugin = require('html-webpack-plugin');
 
 var pluginConfig = new htmlWebpackPlugin({
-  template: __dirname + '/index.html',
-  filename: 'index.html',
+  template: __dirname + '/App/Views/index.html',
+  filename: '../../Views/index.html',
   inject: 'head'
 });
 module.exports = {
-  entry: './App/index.js',
+  entry: './App/Routes/index.js',
   output:{
       filename: 'bundle.js',
-      path: __dirname + '/build'
+      path: __dirname + '/App/public/js'
   },
   module:{
     loaders:[
-      {test:/\.js$/, include:__dirname + '/App', loader:'babel-loader'}
+      //{test:/\.js$/, include:__dirname + '/App', loader:'babel-loader'}
+      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ }
     ]
   },
-  plugins:[pluginConfig]
+  //plugins:[pluginConfig]
 };
