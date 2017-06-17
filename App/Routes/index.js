@@ -1,8 +1,9 @@
 'use strict';
-const React = require('react');
+import React from 'react';
 const ReactDom = require('react-dom');
+import CurrentWeatherBox from '../Components/currentWeatherBox.js';
 
 ReactDom.render(
-  <h1>Hello</h1>,
+  <CurrentWeatherBox />,
   document.getElementById('root')
 );
