@@ -1,24 +1,27 @@
 'use strict';
-
-const https = require('https');
 const key = require('../../key.json');
 
-//Gets weather data from wunderground and return relevant data as an object
-function GetCurrentWeather(state, city) {
-  //Pull data from weather.com API
-    return new Promise(function(resolve, reject) {
-      https.get(`https://api.wunderground.com/api/${key.key}/geolookup/conditions/q/${state}/${city}.json`, (response) =>{
-        response.on('data', (data) => {
-          console.log(JSON.parse(data));
-          let weatherData = {
-            city: city,
-            state:state,
-            weatherData: JSON.parse(data)
-          };
-          resolve(weatherData);
-        });
+function getCurrentWeather(){
+  let newState = {
+    city:'Atlanta',
+    state:'GA'
+  };
+  return fetch('/api/currentLoc').then(response=>response.json())
+  .then(resJson=>{
+    newState.city = resJson.city ||newState.city;
+    newState.state = resJson.state || newState.state;
+    //console.log('in getCurrentWeather');
+  })
+  .then(()=>{
+    return fetch(`https://api.wunderground.com/api/${key.key}/geolookup/conditions/q/${newState.state}/${newState.city}.json`)
+      .then(response =>  response.json())
+      .then(resJson=>{
+        //console.log(resJson);
+        newState.weather = resJson.current_observation.weather;
+        newState.icon = resJson.current_observation.icon_url;
+        return newState;
       });
     });
 }
 
-module.exports.GetCurrentWeather = GetCurrentWeather;
+module.exports.getCurrentWeather = getCurrentWeather;
