@@ -1,10 +1,11 @@
 import React from 'react';
+import NavWeather from './navWeather.js';
 
 class NavBar extends React.Component {
   render(){
     return (
       <nav>
-        Navigation
+        <NavWeather weatherData={this.props.weatherData} />
       </nav>
     )
   }

@@ -10,16 +10,17 @@ class CurrWeatherBox extends React.Component {
 
   render(){
     let weatherData = this.props.weatherData;
+    let bg = {
+      backgroundImage:`url(${weatherData.backgroundImage})`
+    }
     if(weatherData.icon){
       return(
-        <div className="weather-container">
+        <div className="weather-container" style={bg}>
           <div className="weather-header">
-            Current Weather
+            <span className="temp">{weatherData.temp}</span>
             <h6>{`${weatherData.city || 'Mableton'}, ${weatherData.state || 'GA'}`}</h6>
           </div>
           <div className="weather-details">
-            <img src={weatherData.icon} />
-            <br />
             {weatherData.weather}
           </div>
         </div>

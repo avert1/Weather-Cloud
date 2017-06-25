@@ -16,9 +16,11 @@ function getCurrentWeather(){
     return fetch(`https://api.wunderground.com/api/${key.key}/geolookup/conditions/q/${newState.state}/${newState.city}.json`)
       .then(response =>  response.json())
       .then(resJson=>{
-        //console.log(resJson);
+        console.log(resJson);
         newState.weather = resJson.current_observation.weather;
         newState.icon = resJson.current_observation.icon_url;
+        newState.backgroundImage = '/images/rain.jpg';
+        newState.temp = Math.round(resJson.current_observation.temp_f);
         return newState;
       });
     });

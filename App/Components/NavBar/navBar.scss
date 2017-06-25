@@ -1,6 +1,35 @@
 nav {
-  height:200px;
+  height:37px;
   position: fixed;
   top:0;
   width:100%;
+  //background-color: #555;
+  background-color: #333;
+  color:#eee;
+  box-shadow: 0px 2px 3px #222;
+}
+
+.nav-weather-box {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height:100%;
+  font-size: 14px;
+  background-color: inherit;
+  border-right: solid 1px #898989;
+
+  img {
+    width:35px;
+    padding: 0px 10px;
+  }
+}
+
+.nav-weather-dropdown{
+  position: absolute;
+  top:100%;
+  left:0;
+  width:inherit;
+  background-color: inherit;
+  height:100px;
+  box-shadow: 1px 2px 3px #222;
 }
