@@ -1,0 +1,30 @@
+.browser-container {
+  ul {
+    height:40px;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #111;
+    line-height: 40px;
+    li {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 300;
+      width:27%;
+      height: 100%;
+      color:#eee;
+      text-align: center;
+      line-height: inherit;
+      text-transform: uppercase;
+
+      &.current {
+          color:orange;
+      }
+    }
+  }
+}
+
+.overflow-helper {
+  overflow: hidden;
+}

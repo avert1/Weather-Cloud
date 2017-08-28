@@ -18,8 +18,12 @@
   "homepage": "https://github.com/avert1/Weather-Cloud#readme",
   "dependencies": {
     "express": "^4.15.2",
+    "play-sound": "^1.1.1",
+    "player": "^0.6.1",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "socket.io": "^2.0.3",
+    "socket.io-client": "^2.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",

@@ -1,0 +1,29 @@
+.track-container {
+  position: relative;
+  width:20%;
+  max-width: 140px;
+  min-width: 70px;
+  margin: 15px;
+
+  @media screen and (min-width: 600px){
+    max-width: 200px;
+    width:200px;
+    height:300px;
+  }
+}
+
+.track-bg {
+  padding-top:100%;
+  background-color: #70c7b2;
+  border-radius: 5px;
+  height:inherit;
+}
+
+.track-info {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  bottom:0;
+  background-color: rgba(25, 25, 25, 0.5);
+}

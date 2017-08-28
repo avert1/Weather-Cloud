@@ -5,6 +5,7 @@ import CurrentWeatherBox from '../Components/CurrentWeatherBox/currentWeatherBox
 import NavBar from '../Components/NavBar/navBar.js';
 import PlaylistLister from '../Components/PlaylistLister/playlistLister.js';
 import MusicPlayer from '../Components/MusicPlayer/musicPlayer.js';
+import MusicBrowser from '../Components/MusicBrowser/musicBrowser.js';
 
 //Services
 import currentWeatherService from '../Services/cur-weather-service.js';
@@ -12,9 +13,10 @@ import currentWeatherService from '../Services/cur-weather-service.js';
 currentWeatherService.getCurrentWeather().then(weatherData=>{
   ReactDom.render(
     (<div>
-      <NavBar weatherData={weatherData}/>
-      <CurrentWeatherBox weatherData={weatherData}/>
-      <PlaylistLister weather={weatherData.weather}/>
+      <NavBar weatherData={weatherData} />
+      <CurrentWeatherBox weatherData={weatherData} />
+      {/*<PlaylistLister weather={weatherData.weather} />*/}
+      <MusicBrowser />
       <MusicPlayer />
     </div>),
     document.getElementById('root')
